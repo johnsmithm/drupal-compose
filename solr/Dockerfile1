@@ -1,0 +1,3 @@
+FROM guywithnose/solr:4.10.2
+
+COPY ./conf/solr/search_api/4.x /opt/solr/example/solr/collection1/conf

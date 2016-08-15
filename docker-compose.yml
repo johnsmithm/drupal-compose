@@ -1,0 +1,18 @@
+solr:
+  build: ./solr/
+  ports:
+    - "8983:8983"
+
+web:
+  build: ./web/
+  environment:
+    MYSQL_ROOT_PASSWORD: pwd
+    MYSQL_USER: user
+    MYSQL_DATABASE: dev1
+    MYSQL_HOST: 0.0.0.0
+  ports:
+   - "8003:80"
+  volumes:
+   - /tmp/dev3:/var/www/html
+  links:
+   - solr
