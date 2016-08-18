@@ -72,6 +72,8 @@ ADD ./jetty-logging.xml /tmp/jetty-logging.xml
 
 ADD ./aliases.drushrc.php   /tmp/aliases.drushrc.php
 
+ADD ./gitwrap.sh /gitwrap.sh
+
 VOLUME ["/var/www/html", "/tmp/drupal"]
 
 WORKDIR /var

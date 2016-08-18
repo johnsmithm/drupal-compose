@@ -10,6 +10,7 @@ mkdir -p /var/lib/drupal-private
 chown -R www-data /var/lib/drupal-private
 
 GIT_REPO="https://github.com/szmediathek/szmediathek.git"
+DATABASE_REPO="git@github.com:szmediathek/databases.git"
 #MYSQL_HOST=""
 #MYSQL_USER=""
 #MYSQL_DATABASE=""
@@ -21,9 +22,20 @@ MYSQL_PASSWORD="1"
 echo "02. cloning repo"
 cd /var/www
 rm -rf html
+#todo: use ssh + myphrase
 git clone ${GIT_REPO} html
 cd html
 git checkout stage
+
+#todo: use ssh + myphrase
+#git clone ${DATABASE_REPO} db
+GIT_SSH=/gitwrap.sh git clone ${DATABASE_REPO} db
+if ! [ -n "$SSH_AUTH_SOCK" ] || 
+  ! { ssh-add -l &>/dev/null; rc=$?; [ "$rc" -eq 0 ] || [ "$rc" -eq 1 ];}; then
+    echo "Starting agent..."
+    eval "$(ssh-agent -s)"
+fi
+
 mkdir -p sites/default/files && chmod 755 sites/default && chown -R www-data:www-data sites/default/files;
 
 echo "03. setting database"
