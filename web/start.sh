@@ -25,7 +25,7 @@ rm -rf html
 #todo: use ssh + myphrase
 git clone ${GIT_REPO} html
 cd html
-git checkout stage
+git checkout ${GIT_BRANCH}
 
 #todo: use ssh + myphrase
 #git clone ${DATABASE_REPO} db
