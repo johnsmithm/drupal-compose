@@ -9,7 +9,7 @@ a2ensite 000-default
 mkdir -p /var/lib/drupal-private
 chown -R www-data /var/lib/drupal-private
 
-GIT_REPO="https://github.com/johnsmithm/drupal.the.docker.git"
+GIT_REPO="https://github.com/szmediathek/szmediathek.git"
 #MYSQL_HOST=""
 #MYSQL_USER=""
 #MYSQL_DATABASE=""
