@@ -11,6 +11,8 @@ dev1:
     MYSQL_DATABASE: dev1
     MYSQL_HOST: 1.1.1.1
     GIT_BRANCH: master
+    UPDATE_DB: 1
+    MYSQL_PASSWORD: 123
   ports:
    - "1.1.1.1:8003:80"
   volumes:
