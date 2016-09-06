@@ -20,7 +20,8 @@ if [ ! -f /var/www/sites/default/settings.php ] ; then
     #todo: use ssh + myphrase
     git clone ${GIT_REPO} html
     cd html
-    git checkout stage
+    git checkout ${GIT_BRANCH}
+    git pull
 
     mkdir -p sites/default/files && chmod 755 sites/default && chown -R www-data:www-data sites/default/files;
 
@@ -54,7 +55,8 @@ if [ ! -f /var/www/sites/default/settings.php ] ; then
 
 else
     echo "02. pulling repo"
-    cd /var/www/html
+    cd /var/www/html    
+    git checkout ${GIT_BRANCH}
     git pull
 
     if [[ "${UPDATE_DB}" = "1" ]]; then
