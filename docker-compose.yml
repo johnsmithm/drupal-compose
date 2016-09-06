@@ -13,6 +13,8 @@ dev1:
     GIT_BRANCH: master
     UPDATE_DB: 1
     MYSQL_PASSWORD: 123
+    GIT_USER: 123
+    GIT_PASSWORD: 33
   ports:
    - "1.1.1.1:8003:80"
   volumes:
