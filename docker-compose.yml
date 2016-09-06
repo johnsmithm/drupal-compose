@@ -7,11 +7,12 @@ dev1:
   build: ./web/
   environment:
     MYSQL_ROOT_PASSWORD: pwd
-    MYSQL_USER: user
+    MYSQL_USER: root
     MYSQL_DATABASE: dev1
     MYSQL_HOST: 1.1.1.1
+    GIT_BRANCH: master
   ports:
-   - "8003:80"
+   - "1.1.1.1:8003:80"
   volumes:
    - /tmp/dev1:/var/www/html
   links:
